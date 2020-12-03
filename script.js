@@ -12,11 +12,11 @@ var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var timeLeft = 120;
 var scoreLine = document.getElementById("score");
-var score = 0;
 var i = 0;
 var questionText = document.getElementById("questionText");
 var answerList = document.getElementById("answers");
 var score = 0;
+var gameOverScreen = document.getElementById("game-over");
 
 startQuiz.addEventListener("click", function () {
   console.log("started");
@@ -54,7 +54,6 @@ function cycleQuestions() {
 
 function answer() {
   buttonA.textContent = myQuestions[i].answers.a;
-  console.log(myQuestions[i].answers.a);
   buttonB.textContent = myQuestions[i].answers.b;
   buttonC.textContent = myQuestions[i].answers.c;
   buttonD.textContent = myQuestions[i].answers.d;
@@ -62,7 +61,9 @@ function answer() {
 
 buttonA.addEventListener("click", function () {
   if (event.target.textContent === myQuestions[i].correctAnswer) {
-    score + 10;
+    score++;
+    scoreLine.textContent = "Your Score is " + score;
+    console.log(score);
     cycleQuestions();
   } else {
     timeLeft -= 10;
@@ -71,8 +72,10 @@ buttonA.addEventListener("click", function () {
 });
 buttonB.addEventListener("click", function () {
   if (event.target.textContent === myQuestions[i].correctAnswer) {
-    score + 10;
+    score++;
+    scoreLine.textContent = "Your Score is " + score;
     cycleQuestions();
+    console.log(score);
   } else {
     timeLeft -= 10;
     cycleQuestions();
@@ -80,7 +83,9 @@ buttonB.addEventListener("click", function () {
 });
 buttonC.addEventListener("click", function () {
   if (event.target.textContent === myQuestions[i].correctAnswer) {
-    score + 10;
+    score++;
+    scoreLine.textContent = "Your Score is " + score;
+    console.log(score);
     cycleQuestions();
   } else {
     timeLeft -= 10;
@@ -89,16 +94,15 @@ buttonC.addEventListener("click", function () {
 });
 buttonD.addEventListener("click", function () {
   if (event.target.textContent === myQuestions[i].correctAnswer) {
-    score + 10;
+    score++;
+    scoreLine.textContent = "Your Score is " + score;
+    console.log(score);
     cycleQuestions();
   } else {
     timeLeft -= 10;
     cycleQuestions();
   }
 });
-
-scoreLine.textContent = "Your Score is " + score;
-//questions//
 
 var myQuestions = [
   {
@@ -110,7 +114,7 @@ var myQuestions = [
       c: "Git Clone, Git Pull, Git Stash",
       d: "Stop, Drop, Roll",
     },
-    correctAnswer: b,
+    correctAnswer: "Git Add, Git Commit, Git Push",
   },
   {
     question: "What does HTML stand for?",
@@ -120,7 +124,7 @@ var myQuestions = [
       c: "Hide The Meatballs Later",
       d: "Hyperlink To Media Link",
     },
-    correctAnswer: "a",
+    correctAnswer: "Hypertext Markup Language",
   },
   {
     question: "What is CSS used for?",
@@ -130,7 +134,7 @@ var myQuestions = [
       c: "Stylizing an HTML document",
       d: "Cleaning System Software",
     },
-    correctAnswer: "c",
+    correctAnswer: "Stylizing an HTML document",
   },
   {
     question: "Which of these is not an example of a Bootstrap component?",
@@ -140,7 +144,7 @@ var myQuestions = [
       c: "Mousetraps",
       d: "Cards",
     },
-    correctAnswer: "c",
+    correctAnswer: "Mousetraps",
   },
   {
     question:
@@ -151,7 +155,7 @@ var myQuestions = [
       c: "whats Facebook?",
       d: "all of the above",
     },
-    correctAnswer: "a",
+    correctAnswer: "True",
   },
   {
     question:
@@ -162,7 +166,7 @@ var myQuestions = [
       c: "12",
       d: "14",
     },
-    correctAnswer: "c",
+    correctAnswer: "12",
   },
   {
     question:
@@ -173,6 +177,6 @@ var myQuestions = [
       c: "Booleans",
       d: "Strings",
     },
-    correctAnswer: "b",
+    correctAnswer: "Space Bar",
   },
 ];
