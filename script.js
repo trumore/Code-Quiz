@@ -4,12 +4,17 @@ var startPageEl = document.getElementById("startpage");
 var startQuiz = document.querySelector("#startbtn");
 var endQuiz = document.getElementById("endbtn");
 var timerEl = document.getElementById("timer");
+var questionEl = document.getElementById("question");
+var answerButtons = document.getElementById("button-group");
 var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var timeLeft = 120;
 var score = 0;
+var i = 0;
+var questionText = document.getElementById("questionText");
+var answerList = document.getElementById("answers");
 
 startQuiz.addEventListener("click", function () {
   console.log("started");
@@ -24,11 +29,34 @@ startQuiz.addEventListener("click", function () {
       showScore();
     }
   }, 1000);
+  beginQuestions();
 });
 
-function nextQuestion() {}
+function beginQuestions() {
+  questionText.textContent = "";
+  questionText.textContent = myQuestions[i].question;
+  console.log(myQuestions[i].question);
+  answer();
+}
 
-function answer() {}
+function cycleQuestions() {
+  questionText.textContent = "";
+  buttonA.textContent = "";
+  buttonB.textContent = "";
+  buttonC.textContent = "";
+  buttonD.textContent = "";
+  i++;
+  questionText.textContent = myQuestions[i].question;
+  answer();
+}
+
+function answer() {
+  buttonA.textContent = myQuestions[i].answers.a;
+  console.log(myQuestions[i].answers.a);
+  buttonB.textContent = myQuestions[i].answers.b;
+  buttonC.textContent = myQuestions[i].answers.c;
+  buttonD.textContent = myQuestions[i].answers.d;
+}
 
 //questions//
 
@@ -108,5 +136,3 @@ var myQuestions = [
     correctAnswer: "b",
   },
 ];
-
-// timer element//
