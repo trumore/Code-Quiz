@@ -15,6 +15,15 @@ startQuiz.addEventListener("click", function () {
   console.log("started");
   startPageEl.classList.add("d-none");
   quizEl.classList.remove("d-none");
+  var timerInterval = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = "You have: " + timeLeft + " seconds remaining";
+
+    if (timeLeft === 0) {
+      clearInterval(timerEl);
+      showScore();
+    }
+  }, 1000);
 });
 
 function nextQuestion() {}
