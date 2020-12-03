@@ -11,10 +11,12 @@ var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var timeLeft = 120;
+var scoreLine = document.getElementById("score");
 var score = 0;
 var i = 0;
 var questionText = document.getElementById("questionText");
 var answerList = document.getElementById("answers");
+var score = 0;
 
 startQuiz.addEventListener("click", function () {
   console.log("started");
@@ -58,6 +60,44 @@ function answer() {
   buttonD.textContent = myQuestions[i].answers.d;
 }
 
+buttonA.addEventListener("click", function () {
+  if (event.target.textContent === myQuestions[i].correctAnswer) {
+    score + 10;
+    cycleQuestions();
+  } else {
+    timeLeft -= 10;
+    cycleQuestions();
+  }
+});
+buttonB.addEventListener("click", function () {
+  if (event.target.textContent === myQuestions[i].correctAnswer) {
+    score + 10;
+    cycleQuestions();
+  } else {
+    timeLeft -= 10;
+    cycleQuestions();
+  }
+});
+buttonC.addEventListener("click", function () {
+  if (event.target.textContent === myQuestions[i].correctAnswer) {
+    score + 10;
+    cycleQuestions();
+  } else {
+    timeLeft -= 10;
+    cycleQuestions();
+  }
+});
+buttonD.addEventListener("click", function () {
+  if (event.target.textContent === myQuestions[i].correctAnswer) {
+    score + 10;
+    cycleQuestions();
+  } else {
+    timeLeft -= 10;
+    cycleQuestions();
+  }
+});
+
+scoreLine.textContent = "Your Score is " + score;
 //questions//
 
 var myQuestions = [
@@ -70,7 +110,7 @@ var myQuestions = [
       c: "Git Clone, Git Pull, Git Stash",
       d: "Stop, Drop, Roll",
     },
-    correctAnswer: "b",
+    correctAnswer: b,
   },
   {
     question: "What does HTML stand for?",
