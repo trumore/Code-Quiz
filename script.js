@@ -1,5 +1,6 @@
 // identifying variables to reference the HTML//
 var quizEl = document.getElementById("quiz");
+var startPageEl = document.getElementById("startpage");
 var startQuiz = document.querySelector("#startbtn");
 var endQuiz = document.getElementById("endbtn");
 var timerEl = document.getElementById("timer");
@@ -10,9 +11,19 @@ var buttonD = document.getElementById("d");
 var timeLeft = 120;
 var score = 0;
 
+startQuiz.addEventListener("click", function () {
+  console.log("started");
+  startPageEl.classList.add("d-none");
+  quizEl.classList.remove("d-none");
+});
+
+function nextQuestion() {}
+
+function answer() {}
+
 //questions//
 
-const myQuestions = [
+var myQuestions = [
   {
     question:
       "What steps would you follow to push files from your local machine to your Git Repo?",
@@ -60,6 +71,8 @@ const myQuestions = [
     answers: {
       a: "True",
       b: "False",
+      c: "whats Facebook?",
+      d: "all of the above",
     },
     correctAnswer: "a",
   },
@@ -88,15 +101,3 @@ const myQuestions = [
 ];
 
 // timer element//
-
-startQuiz.addEventListener("click", function () {
-  var timerInterval = setInterval(function () {
-    timeLeft--;
-    timerEl.textContent = "You  have: " + timeLeft + " seconds remaining";
-
-    if (timeLeft === 0) {
-      clearInterval(timerEl);
-      showScore();
-    }
-  }, 1000);
-});
