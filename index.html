@@ -22,12 +22,14 @@
     <div class="container d-none" id="quiz"> 
         <div class="row">
           <div class="col-md">
-              <div id="question">Question</div>
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">A</button>
-                <button type="button" class="btn btn-secondary">B</button>
-                <button type="button" class="btn btn-success">C</button>
-                <button type="button" class="btn btn-danger">D</button>
+            <div id="score"></div>
+              <div id="question">Question:</div>
+              <div id="questionText"></div>
+              <div class="btn-group" role="group" aria-label="Basic example" id="answers">
+                <button type="button" class="btn btn-primary" id="a">A</button>
+                <button type="button" class="btn btn-secondary" id="b">B</button>
+                <button type="button" class="btn btn-success" id="c">C</button>
+                <button type="button" class="btn btn-danger" id="d">D</button>
                 <div id="timer"> you have <span id="time">120</span> seconds remaining</div>
               </div>
           </div>    
@@ -51,14 +53,4 @@ starts and I am presented with a question WHEN I answer a question THEN I am
 presented with another question WHEN I answer a question incorrectly THEN time
 is subtracted from the clock WHEN all questions are answered or the timer
 reaches 0 THEN the game is over WHEN the game is over THEN I can save my
-initials and score    <div class="container">
-          <div id="quiz" class="hide">
-            <div id="question">Question</div>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-primary">A</button>
-              <button type="button" class="btn btn-secondary">B</button>
-              <button type="button" class="btn btn-success">C</button>
-              <button type="button" class="btn btn-danger">D</button>
-              <div id="timer"> you have <span id="time">120</span> seconds remaining</div>
-            </div>
-        </div>
+initials and score    
